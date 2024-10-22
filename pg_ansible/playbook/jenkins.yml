@@ -1,0 +1,15 @@
+---
+- name: Подготовка всех хостов
+  hosts: jenkins_master_group, jenkins_agent_group
+  roles:
+    - common_jenkins
+
+- name: Установка и настройка Jenkins Master
+  hosts: jenkins_master_group
+  roles:
+    - jenkins_master
+
+- name: Настройка агентов Jenkins
+  hosts: jenkins_agent_group
+  roles:
+    - jenkins_agent
